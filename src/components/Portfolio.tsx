@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from './Button';
+import { link } from 'fs';
 const categories = ['All', 'Web Design', 'Mobile Apps', 'Branding', 'Marketing'];
 const projects = [{
   id: 1,
@@ -19,27 +20,57 @@ const projects = [{
   id: 3,
   title: 'Restaurant Brand Identity',
   category: 'Branding',
-  image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-  description: 'Complete brand identity system for an upscale restaurant chain, including logo, color palette, and marketing materials.'
+  image: '/assets/img/Flora-d-Aura-Cebu-Flower-Bouquets-Crystal-Gifts-10-06-2025_11_18_PM.png',
+  description: 'Complete brand identity system for an upscale restaurant chain, including logo, color palette, and marketing materials.',
+  link: "https://floradaura.vercel.app/"
 }, {
   id: 4,
   title: 'Social Media Campaign',
   category: 'Marketing',
-  image: 'https://images.unsplash.com/photo-1611926653458-09294b3142bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-  description: "Integrated social media campaign that increased engagement by 200% and drove significant traffic to the client's website."
+  image: '/assets/img/Ordering-System-10-06-2025_11_21_PM.png',
+  description: "Integrated social media campaign that increased engagement by 200% and drove significant traffic to the client's website.",
+  link: "https://menulyy.vercel.app/"
 }, {
   id: 5,
   title: 'Healthcare Provider Website',
   category: 'Web Design',
-  image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-  description: 'Modern, accessible website for a healthcare provider, focusing on patient experience and information architecture.'
-}, {
+  image: '/assets/img/Admin-Ordering-System-10-06-2025_11_26_PM.png',
+  description: 'Modern, accessible website for a healthcare provider, focusing on patient experience and information architecture.',
+  link: "https://admin-menulyy.vercel.app/"
+},
+{
   id: 6,
   title: 'Fitness Tracking App',
   category: 'Mobile Apps',
-  image: 'https://images.unsplash.com/photo-1593697972624-aca557a4e2c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-  description: 'Mobile application for fitness tracking with personalized workout plans and progress monitoring.'
-}];
+  image: '/assets/img/Prescripto-10-06-2025_11_26_PM.png',
+  description: 'Mobile application for fitness tracking with personalized workout plans and progress monitoring.',
+  link: "https://prescriptoo-appointment-booking.vercel.app/"
+},
+{
+  id: 7,
+  title: 'Fitness Tracking App',
+  category: 'Mobile Apps',
+  image: '/assets/img/Vite-React-10-06-2025_11_28_PM.png',
+  description: 'Mobile application for fitness tracking with personalized workout plans and progress monitoring.',
+  link: "https://award-winning-website-gsap.vercel.app/"
+},
+{
+  id: 8,
+  title: 'Fitness Tracking App',
+  category: 'Mobile Apps',
+  image: '/assets/img/vts-training-com-au-10-06-2025_11_31_PM.png',
+  description: 'Mobile application for fitness tracking with personalized workout plans and progress monitoring.',
+  link: "https://vts-training.com.au/"
+},
+{
+  id: 9,
+  title: 'Fitness Tracking App',
+  category: 'Mobile Apps',
+  image: '/assets/img/Pintsize-Website-Build-10-06-2025_11_32_PM.png',
+  description: 'Mobile application for fitness tracking with personalized workout plans and progress monitoring.',
+  link: "https://dev.pintsizedesign.com.au/"
+},
+];
 export function Portfolio() {
   const [activeCategory, setActiveCategory] = useState('All');
   const filteredProjects = activeCategory === 'All' ? projects : projects.filter(project => project.category === activeCategory);
