@@ -21,19 +21,16 @@ export function Header() {
         <Logo />
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#services" className="text-gray-700 hover:text-indigo-600 font-medium">
+          <a href="#services" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-indigo-600 font-medium`}>
             Services
           </a>
-          <a href="#portfolio" className="text-gray-700 hover:text-indigo-600 font-medium">
+          <a href="#portfolio" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-indigo-600 font-medium`}>
             Work
           </a>
-          <a href="#about" className="text-gray-700 hover:text-indigo-600 font-medium">
-            About
-          </a>
-          <a href="#contact" className="text-gray-700 hover:text-indigo-600 font-medium">
+          <a href="#contact" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-indigo-600 font-medium`}>
             Contact
           </a>
-          <Button variant="primary">Get Started</Button>
+          <Button href='#services' variant="primary">Get Started</Button>
         </nav>
         {/* Mobile Menu Button */}
         <button className="md:hidden text-gray-700" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -55,7 +52,7 @@ export function Header() {
             <a href="#contact" className="text-gray-700 hover:text-indigo-600 font-medium py-2" onClick={() => setMobileMenuOpen(false)}>
               Contact
             </a>
-            <Button variant="primary" className="w-full">
+            <Button href='#services' variant="primary" className="w-full">
               Get Started
             </Button>
           </div>
