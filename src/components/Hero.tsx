@@ -3,6 +3,14 @@ import { Button } from './Button';
 import { ChevronRightIcon } from 'lucide-react';
 export function Hero() {
   return <section className="relative pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 h-[80dvh] flex items-center">
+      <div className="bg-hero h-dvh w-full">
+        <video autoPlay muted loop playsInline className='h-dvh w-full object-cover'>
+          <source src="/assets/videos/14471459_3840_2160_30fps.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        {/* <div className="absolute inset-0 bg-[black]/70"></div> */}
+      </div>
+
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">

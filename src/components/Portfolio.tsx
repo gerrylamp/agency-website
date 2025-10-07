@@ -1,73 +1,73 @@
 import React, { useState } from 'react';
 import { Button } from './Button';
 import { link } from 'fs';
-const categories = ['All', 'Web Design', 'Mobile Apps', 'Branding', 'Marketing'];
+const categories = ['All', 'Personal', 'Landing Page', 'React App', 'WordPress'];
 const projects = [{
   id: 1,
-  title: 'Ecommerce Platform Redesign',
-  category: 'Web Design',
+  title: 'Gerrykoh Portfolio (Static)',
+  category: 'Personal',
   image: '/assets/img/Gerrykoh-Computer-Engineering-10-02-2025_08_39_PM.png',
-  description: 'Complete redesign of an ecommerce platform, focusing on user experience and conversion optimization.',
+  description: 'My first personal portfolio built using HTML and CSS to showcase projects and basic front-end skills.',
   link: "https://gerrykoh.netlify.app/"
 }, {
   id: 2,
-  title: 'Financial Services App',
-  category: 'Mobile Apps',
+  title: 'React Portfolio',
+  category: 'Personal',
   image: '/assets/img/Gerrykoh-10-02-2025_08_42_PM.png',
-  description: 'Mobile application for a financial services company, providing users with account management tools.',
+  description: 'A modern React-based portfolio showcasing my web development projects and UI experiments.',
   link: "https://gerrykoh.vercel.app/"
 }, {
   id: 3,
-  title: 'Restaurant Brand Identity',
-  category: 'Branding',
+  title: 'Flora d’Aura',
+  category: 'Landing Page',
   image: '/assets/img/Flora-d-Aura-Cebu-Flower-Bouquets-Crystal-Gifts-10-06-2025_11_18_PM.png',
-  description: 'Complete brand identity system for an upscale restaurant chain, including logo, color palette, and marketing materials.',
+  description: 'A landing page for a flower and crystal gift shop, designed with a clean and elegant aesthetic.',
   link: "https://floradaura.vercel.app/"
 }, {
   id: 4,
-  title: 'Social Media Campaign',
-  category: 'Marketing',
+  title: 'Menulyy',
+  category: 'React App',
   image: '/assets/img/Ordering-System-10-06-2025_11_21_PM.png',
-  description: "Integrated social media campaign that increased engagement by 200% and drove significant traffic to the client's website.",
+  description: "A food ordering system built with React and Vite, featuring menu browsing, cart management, and Stripe integration.",
   link: "https://menulyy.vercel.app/"
 }, {
   id: 5,
-  title: 'Healthcare Provider Website',
-  category: 'Web Design',
+  title: 'Menulyy Admin Dashboard',
+  category: 'React App',
   image: '/assets/img/Admin-Ordering-System-10-06-2025_11_26_PM.png',
-  description: 'Modern, accessible website for a healthcare provider, focusing on patient experience and information architecture.',
+  description: 'An admin dashboard for managing orders, menus, and users for the Menulyy food ordering system.',
   link: "https://admin-menulyy.vercel.app/"
 },
 {
   id: 6,
-  title: 'Fitness Tracking App',
-  category: 'Mobile Apps',
+  title: 'Prescriptoo Appointment System',
+  category: 'React App',
   image: '/assets/img/Prescripto-10-06-2025_11_26_PM.png',
-  description: 'Mobile application for fitness tracking with personalized workout plans and progress monitoring.',
+  description: 'A healthcare appointment booking app that allows users to schedule and manage doctor consultations online.',
   link: "https://prescriptoo-appointment-booking.vercel.app/"
 },
 {
   id: 7,
-  title: 'Fitness Tracking App',
-  category: 'Mobile Apps',
+  title: 'GSAP Animation Test Site',
+  category: 'Landing Page',
   image: '/assets/img/Vite-React-10-06-2025_11_28_PM.png',
-  description: 'Mobile application for fitness tracking with personalized workout plans and progress monitoring.',
+  description: 'A creative GSAP animation experiment testing motion effects and modern UI transitions.',
   link: "https://award-winning-website-gsap.vercel.app/"
 },
 {
   id: 8,
-  title: 'Fitness Tracking App',
-  category: 'Mobile Apps',
+  title: 'VTS Training',
+  category: 'WordPress',
   image: '/assets/img/vts-training-com-au-10-06-2025_11_31_PM.png',
-  description: 'Mobile application for fitness tracking with personalized workout plans and progress monitoring.',
+  description: 'A custom WordPress theme built with ACF, CPT, and custom Gutenberg blocks for a vocational training company.',
   link: "https://vts-training.com.au/"
 },
 {
   id: 9,
-  title: 'Fitness Tracking App',
-  category: 'Mobile Apps',
+  title: 'Pintsizedesign',
+  category: 'WordPress',
   image: '/assets/img/Pintsize-Website-Build-10-06-2025_11_32_PM.png',
-  description: 'Mobile application for fitness tracking with personalized workout plans and progress monitoring.',
+  description: 'A WordPress site using a fully custom theme with CPTs, ACFs, and reusable block-based layouts for a design agency.',
   link: "https://dev.pintsizedesign.com.au/"
 },
 ];
