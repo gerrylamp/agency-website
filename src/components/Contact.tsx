@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-import {
-  MailIcon,
-  PhoneIcon,
-  ClockIcon,
-} from "lucide-react";
+import { MailIcon, PhoneIcon, ClockIcon } from "lucide-react";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -15,8 +11,12 @@ export function Contact() {
     message: "",
   });
 
+  const [submitted, setSubmitted] = useState(false);
+
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -28,11 +28,12 @@ export function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(formData);
-    alert("Form submitted! This is a demo, so no actual email was sent.");
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 4000);
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16">
           {/* LEFT SIDE */}
@@ -41,8 +42,8 @@ export function Contact() {
               Let's Build Something <span className="gradient-text">Amazing</span>
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-              Ready to transform your digital presence? Let's discuss your project
-              and create a custom solution that drives results.
+              Ready to bring your idea to life? Let’s collaborate and craft a digital
+              experience that stands out.
             </p>
 
             <div className="space-y-6">
@@ -52,7 +53,10 @@ export function Contact() {
                 </div>
                 <div>
                   <div className="font-semibold">Email</div>
-                  <a href="mailto: gerrykoh.lampaug@gmail.com" className="text-gray-600 dark:text-gray-300">
+                  <a
+                    href="mailto:gerrykoh.lampaug@gmail.com"
+                    className="text-gray-600 dark:text-gray-300"
+                  >
                     gerrykoh.lampaug@gmail.com
                   </a>
                 </div>
@@ -64,7 +68,10 @@ export function Contact() {
                 </div>
                 <div>
                   <div className="font-semibold">Phone</div>
-                  <a href="tel: 0927-874-0256" className="text-gray-600 dark:text-gray-300">
+                  <a
+                    href="tel:09278740256"
+                    className="text-gray-600 dark:text-gray-300"
+                  >
                     0927-874-0256
                   </a>
                 </div>
@@ -82,12 +89,6 @@ export function Contact() {
                 </div>
               </div>
             </div>
-
-            {/* <div className="mt-8">
-              <button className="bg-blue-600 hover:bg-blue-800 rounded-lg text-white px-8 py-4 !rounded-button font-semibold transition-all duration-300 hover:shadow-lg whitespace-nowrap">
-                Schedule a Call
-              </button>
-            </div> */}
           </div>
 
           {/* RIGHT SIDE FORM */}
@@ -109,7 +110,8 @@ export function Contact() {
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleChange}
-                    className="form-input w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary text-sm"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-indigo-500 text-sm"
                     placeholder="John"
                   />
                 </div>
@@ -122,7 +124,8 @@ export function Contact() {
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleChange}
-                    className="form-input w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary text-sm"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-indigo-500 text-sm"
                     placeholder="Doe"
                   />
                 </div>
@@ -136,7 +139,8 @@ export function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="form-input w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary text-sm"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-indigo-500 text-sm"
                   placeholder="john@example.com"
                 />
               </div>
@@ -150,7 +154,8 @@ export function Contact() {
                   name="projectType"
                   value={formData.projectType}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary text-sm"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-indigo-500 text-sm"
                 >
                   <option value="">Select project type</option>
                   <option>Custom Theme Development</option>
@@ -158,33 +163,37 @@ export function Contact() {
                   <option>Website Maintenance</option>
                   <option>Performance Optimization</option>
                   <option>E-commerce Solution</option>
+                  <option>Deployment & Hosting</option>
                   <option>Other</option>
                 </select>
               </div>
 
-              {/* BUDGET */}
-              <div className="mb-6">
+              {/* BUDGET (Optional) */}
+              {/* <div className="mb-6">
                 <label className="block text-sm font-medium mb-2">
-                  Budget Range
+                  Budget Range <span className="text-gray-400">(optional)</span>
                 </label>
                 <div className="grid grid-cols-2 gap-4">
-                  {["$1,000 - $5,000", "$5,000 - $10,000", "$10,000 - $25,000", "$25,000+"].map(
-                    (budget) => (
-                      <label key={budget} className="flex items-center space-x-2">
-                        <input
-                          type="radio"
-                          name="budget"
-                          value={budget}
-                          checked={formData.budget === budget}
-                          onChange={handleChange}
-                          className="form-radio text-primary"
-                        />
-                        <span className="text-sm">{budget}</span>
-                      </label>
-                    )
-                  )}
+                  {[
+                    "₱10,000 - ₱30,000",
+                    "₱30,000 - ₱50,000",
+                    "₱50,000 - ₱100,000",
+                    "₱100,000+",
+                  ].map((budget) => (
+                    <label key={budget} className="flex items-center space-x-2">
+                      <input
+                        type="radio"
+                        name="budget"
+                        value={budget}
+                        checked={formData.budget === budget}
+                        onChange={handleChange}
+                        className="text-indigo-600 focus:ring-indigo-500"
+                      />
+                      <span className="text-sm">{budget}</span>
+                    </label>
+                  ))}
                 </div>
-              </div>
+              </div> */}
 
               {/* MESSAGE */}
               <div className="mb-6">
@@ -196,17 +205,24 @@ export function Contact() {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="form-input w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary text-sm resize-none"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-indigo-500 text-sm resize-none"
                   placeholder="Tell me about your project..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full rounded-lg bg-indigo-600 hover:bg-indigo-800 text-white py-4 !rounded-button font-semibold transition-all duration-300 hover:shadow-lg whitespace-nowrap"
+                className="w-full rounded-lg bg-indigo-600 hover:bg-indigo-800 text-white py-4 font-semibold transition-all duration-300 hover:shadow-lg whitespace-nowrap"
               >
                 Send Message
               </button>
+
+              {submitted && (
+                <p className="text-green-600 mt-4 text-center">
+                  ✅ Thanks for reaching out! I’ll get back to you within 24 hours.
+                </p>
+              )}
             </form>
           </div>
         </div>

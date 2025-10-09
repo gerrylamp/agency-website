@@ -15,7 +15,7 @@ export function App() {
         <Services />
         <Portfolio />
         {/* <About /> */}
-        <Pricing />
+        {/* <Pricing /> */}
         <Contact />
       </main>
       <Footer />

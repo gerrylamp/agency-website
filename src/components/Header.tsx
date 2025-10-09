@@ -21,6 +21,9 @@ export function Header() {
         <Logo />
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
+          <a href="/#" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-indigo-600 font-medium`}>
+            Home
+          </a>
           <a href="#services" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-indigo-600 font-medium`}>
             Services
           </a>

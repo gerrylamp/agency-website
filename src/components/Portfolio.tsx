@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Button } from './Button';
 import { link } from 'fs';
+import { useLocation } from 'react-router-dom';
+import { Header } from './Header';
+import { Footer } from './Footer';
 const categories = ['All', 'Personal', 'Landing Page', 'React App', 'WordPress'];
 const projects = [{
   id: 1,
@@ -70,11 +73,32 @@ const projects = [{
   description: 'A WordPress site using a fully custom theme with CPTs, ACFs, and reusable block-based layouts for a design agency.',
   link: "https://dev.pintsizedesign.com.au/"
 },
+{
+  id: 10,
+  title: 'Pintsizedesign',
+  category: 'WordPress',
+  image: '/assets/img/Affiliate-Area-Micah-Finance-Solutions-10-08-2025_04_32_PM.png',
+  description: 'A WordPress site using a fully custom theme with CPTs, ACFs, and reusable block-based layouts for a design agency.',
+  link: "https://micah.com.au/affiliate-area/"
+},
+{
+  id: 11,
+  title: 'Pintsizedesign',
+  category: 'WordPress',
+  image: '/assets/img/mmgmodels-test-gt-tc-i-1-10-08-2025_04_50_PM.png',
+  description: 'A WordPress site using a fully custom theme with CPTs, ACFs, and reusable block-based layouts for a design agency.',
+  link: "https://mmgmodels-test.gt.tc/?i=1"
+},
 ];
 export function Portfolio() {
+  const location = useLocation();
+  const isPortfolioPage = location.pathname === '/portfolio';
   const [activeCategory, setActiveCategory] = useState('All');
   const filteredProjects = activeCategory === 'All' ? projects : projects.filter(project => project.category === activeCategory);
-  return <section id="portfolio" className="py-20">
+  const displayedPortfolio = isPortfolioPage ? filteredProjects : filteredProjects.slice(0, 6);
+  
+  const content = (
+   <section id="portfolio" className="py-20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -91,7 +115,7 @@ export function Portfolio() {
             </button>)}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map(project => <div key={project.id} className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
+          {displayedPortfolio.map(project => <div key={project.id} className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
               <div className="relative h-60 overflow-hidden">
                 <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
               </div>
@@ -109,9 +133,23 @@ export function Portfolio() {
               </div>
             </div>)}
         </div>
-        <div className="text-center mt-12">
-          <Button variant="primary">View All Projects</Button>
-        </div>
+        {!isPortfolioPage && (
+          <div className="text-center mt-12">
+            <Button href='/portfolio' variant="primary">View All Projects</Button>
+          </div>
+        )}
       </div>
-    </section>;
+    </section>
+  );
+
+  // On /products, wrap with Header & Footer
+  return isPortfolioPage ? (
+    <>
+      <Header />
+      {content}
+      <Footer />
+    </>
+  ) : (
+    content
+  );
 }
